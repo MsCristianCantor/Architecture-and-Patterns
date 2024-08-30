@@ -4,21 +4,21 @@ Tu implementación del Adapter Pattern en Go está bien encaminada, pero veo un 
 
 Aquí te dejo algunos comentarios y sugerencias:
 
-## Interfaz y Métodos:
+## Interfaz y Métodos
 
 - La interfaz TargetUserSummary tiene el método Sumary(), pero en el Adapter, implementas el método Request(). Deberías asegurarte de que el método del adaptador coincida con la interfaz esperada.
 - Además, la interfaz TargetUserSummary parece no ser utilizada en tu código. Si el objetivo es seguir el patrón Adapter, el adaptador debería implementar esa interfaz.
 
-## Nombres de Métodos:
+## Nombres de Métodos
 
 - Asegúrate de que el nombre del método del adaptador sea claro y esté alineado con la interfaz.
 - El método Request() debería llamarse Sumary() para alinearse con la interfaz TargetUserSummary.
 
-## Uso de la interfaz:
+## Uso de la interfaz
 
 - Sería útil si en el main() usaras la interfaz TargetUserSummary en lugar de acceder directamente al Adapter. Esto te permitiría cambiar el adaptador sin modificar el resto del código.
 
-## Corrección de Errores Tipográficos:
+## Corrección de Errores Tipográficoss
 
 - El nombre del método Sumary() debería corregirse a Summary().
 
@@ -73,7 +73,7 @@ func main() {
 }
 ```
 
-## Cambios principales:
+## Cambios principales
 
 - Se cambió Sumary() a Summary() en la interfaz.
 - El método Request() del adaptador fue renombrado a Summary() para coincidir con la interfaz.
