@@ -89,7 +89,7 @@ Tu implementación del patrón Bridge usando figuras y APIs de dibujo es sólida
 
 - Podrías evitar la estructura intermedia Figure y hacer que ImplementationDrawAPI1 y ImplementationDrawAPI2 implementen directamente la interfaz AbstractionFigure. Esto reduciría un nivel de indirecto en la composición, haciendo el código más simple y directo.
 
-#### Ejemplo de código con algunas de estas sugerencias:
+#### Ejemplo de código con algunas de estas sugerencias
 
 ```go
 package main
