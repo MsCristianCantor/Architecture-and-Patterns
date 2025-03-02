@@ -70,18 +70,18 @@ func (c *WeatherStation) ChangeTemperature(temperature string) {
 // Main
 func main() {
 	// Crear weather station
-	product := NewWeatherStation("18")
+	weatherStation := NewWeatherStation("18")
 
 	// Crear clientes
 	customer1 := &TemperatureDisplay{name: "Carlos"}
 	customer2 := &MobileApp{name: "Ana"}
 
 	// Suscribir clientes al producto
-	product.Register(customer1)
-	product.Register(customer2)
+	weatherStation.Register(customer1)
+	weatherStation.Register(customer2)
 
 	// El clima cambia
-	product.ChangeTemperature("20")
+	weatherStation.ChangeTemperature("20")
 	// El clima vuelva a cambiar
-	product.ChangeTemperature("22")
+	weatherStation.ChangeTemperature("22")
 }
