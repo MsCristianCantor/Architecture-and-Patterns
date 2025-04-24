@@ -61,3 +61,46 @@ func (v *VendingMachineContext) reduceProductQuantity(name string) {
 ```
 
 Así mantienes la lógica aislada.
+
+### 4. Estado de error redundante
+
+En `ProductRequestedState.SelectProduct`, el error:
+
+```go
+return fmt.Errorf("Producty already requested")
+```
+no solo tiene un typo, también podría mejorarse a algo como:
+```go
+return fmt.Errorf("Product already selected; dispense or cancel")
+```
+
+### 5. Validaciones preventivas
+
+En `ProductRequestedState.Dispense()` accedes directamente al producto seleccionado sin validar si existe en el mapa. Podrías agregar una validación extra como:
+
+```go
+product, ok := i.vendingMachine.products[i.vendingMachine.productSeleced]
+if !ok {
+    return fmt.Errorf("Invalid product selected")
+}
+```
+
+### 🌟 Extra sugerencia: manejo de estado OutOfStock
+
+Podrías implementar un nuevo estado concreto `OutOfStockState` que se active cuando todos los productos se acaban. Esto le daría más robustez y realismo al modelo.
+
+## 🧪 Test adicional sugerido
+
+En el main, podrías incluir casos como:
+
+* Intentar dispensar sin seleccionar producto.
+* Eyectar monedas en diferentes estados.
+* Insertar monedas adicionales y seleccionar productos costosos.
+
+Esto haría tu flujo de prueba más completo.
+
+## 🔚 Conclusión
+
+Muy buen trabajo. Solo hay detalles menores de forma y organización que puedes mejorar. La estructura general y el uso del patrón están correctos. Si sigues construyendo sobre esta base, podrías incluso llegar a tener un framework mini de máquinas expendedoras con distintos tipos de lógicas o interfaces.
+
+¡Sigue así! 🚀
