@@ -30,7 +30,7 @@
 20. **Día 20:** Observer Pattern
 21. **Día 21:** Revisión parcial + ejercicios
 
-## Semana 4 - Introducción a Arquitecturas
+## Semana 4 - Patrones de Comportamiento 2
 
 22. **Día 22:** State Pattern
 23. **Día 23:** Strategy Pattern
